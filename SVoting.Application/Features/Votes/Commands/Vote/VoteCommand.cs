@@ -9,7 +9,6 @@ namespace SVoting.Application.Features.Votes.Commands.Vote
 {
     public class VoteCommand : IRequest<VoteResponse>
     {
-        public Guid Id { get; set; }
         public string VotingCode { get; set; } = string.Empty;
         public Guid PollId { get; set; }
         public Guid CategoryId { get; set; }
@@ -24,15 +23,13 @@ namespace SVoting.Application.Features.Votes.Commands.Vote
         private readonly INomineeRepository _nomineeRepository;
         private readonly IPollCategoryRepository _pollCategoryRepository;
         private readonly ICodesRepository _codeRepository;
-        private readonly IMapper _mapper;
 
         public VoteCommandHandler(IVoteRepository asyncRepository, 
                                     IPollRepository pollRepository, 
                                     ICategoryRepository categoryRepository, 
                                     INomineeRepository nomineeRepository, 
                                     IPollCategoryRepository pollCategoryRepository, 
-                                    ICodesRepository codesRepository, 
-                                    IMapper mapper) 
+                                    ICodesRepository codesRepository) 
         {
             _asyncRepository = asyncRepository;
             _pollRepository = pollRepository;
@@ -40,8 +37,6 @@ namespace SVoting.Application.Features.Votes.Commands.Vote
             _nomineeRepository = nomineeRepository;
             _pollCategoryRepository = pollCategoryRepository;
             _codeRepository = codesRepository;
-
-            _mapper = mapper;
         }
 
         public async Task<VoteResponse> Handle(VoteCommand request, CancellationToken cancellationToken)
