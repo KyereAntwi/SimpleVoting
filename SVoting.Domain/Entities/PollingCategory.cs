@@ -7,10 +7,5 @@ public class PollingCategory
 	public string Identifyer { get; set; } = string.Empty;
 
     public ICollection<PollCategory> PollCategories { get; set; } = default!;
-
-    public PollingCategory(string identifyer)
-	{
-		Identifyer = identifyer;
-	}
 }
 

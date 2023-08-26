@@ -10,11 +10,5 @@ public class PollingSpace
 	public bool Active { get; set; } = true;
 
 	public ICollection<Poll> Polls { get; set; } = default!;
-
-	public PollingSpace(string name, string industry)
-	{
-		Name = name;
-		Industry = industry;
-	}
 }
 

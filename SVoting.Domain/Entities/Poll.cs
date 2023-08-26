@@ -3,7 +3,7 @@
 public class Poll
 {
 	public Guid Id { get; set; }
-	public string Title { get; set; }
+	public string Title { get; set; } = string.Empty;
 	public bool Published { get; set; } = false;
 	public DateTime TimeStamp { get; set; } = DateTime.UtcNow;
 
@@ -11,11 +11,5 @@ public class Poll
 	public PollingSpace? PollingSpace { get; set; }
 
 	public ICollection<PollCategory> PollCategories { get; set; } = default!;
-
-	public Poll(string title, Guid spaceId)
-	{
-		Title = title;
-		PollingSpaceId = spaceId;
-	}
 }
 

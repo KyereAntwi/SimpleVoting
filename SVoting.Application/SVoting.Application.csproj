@@ -24,20 +24,68 @@
     <None Remove="Features\" />
     <None Remove="Features\PollingSpaces\" />
     <None Remove="Features\PollingSpaces\Queries\" />
+    <None Remove="Features\PollingSpaces\Commands\" />
+    <None Remove="Features\PollingSpaces\Queries\GetAllPollingSpaces\" />
+    <None Remove="Features\PollingSpaces\Queries\GetPollingSpaceWithPollsByUserId\" />
+    <None Remove="Profiles\" />
+    <None Remove="Features\PollingSpaces\Commands\CreateAPollingSpace\" />
+    <None Remove="Features\Polls\" />
+    <None Remove="Features\Polls\Queries\" />
+    <None Remove="Features\PollingSpaces\Commands\DisableSpace\" />
+    <None Remove="Features\Polls\Queries\GetAllPolls\" />
+    <None Remove="Features\Polls\Queries\GetPollDetails\" />
+    <None Remove="Features\Polls\Commands\" />
+    <None Remove="Features\Polls\Commands\CreateAPoll\" />
+    <None Remove="Features\Polls\Commands\AddCategoryToPoll\" />
+    <None Remove="Features\Polls\Commands\DeletePoll\" />
+    <None Remove="Features\Categories\" />
+    <None Remove="Features\Categories\Commands\" />
+    <None Remove="Features\Categories\Commands\CreateACategory\" />
+    <None Remove="Features\Categories\Commands\AddNomineeToCategory\" />
+    <None Remove="Features\Polls\Commands\ActivatePoll\" />
+    <None Remove="Features\Nomnees\" />
+    <None Remove="Features\Nomnees\Querries\" />
+    <None Remove="Features\Nomnees\Commands\" />
+    <None Remove="Features\Nomnees\Querries\GetAllNominees\" />
+    <None Remove="Features\Nomnees\Querries\GetNomineeDetails\" />
+    <None Remove="Features\Nomnees\Querries\GetNomineeCategories\" />
+    <None Remove="Features\Nomnees\Querries\GetNomineeVotes\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Contracts\" />
-    <Folder Include="Contracts\Persistence\" />
     <Folder Include="Contracts\Infrastructure\" />
     <Folder Include="Contracts\Identity\" />
     <Folder Include="Models\" />
     <Folder Include="Models\Authentication\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Features\" />
     <Folder Include="Features\PollingSpaces\" />
     <Folder Include="Features\PollingSpaces\Queries\" />
+    <Folder Include="Features\PollingSpaces\Commands\" />
+    <Folder Include="Features\PollingSpaces\Queries\GetAllPollingSpaces\" />
+    <Folder Include="Features\PollingSpaces\Queries\GetPollingSpaceWithPollsByUserId\" />
+    <Folder Include="Profiles\" />
+    <Folder Include="Features\PollingSpaces\Commands\CreateAPollingSpace\" />
+    <Folder Include="Features\Polls\" />
+    <Folder Include="Features\Polls\Queries\" />
+    <Folder Include="Features\PollingSpaces\Commands\DisableSpace\" />
+    <Folder Include="Features\Polls\Queries\GetAllPolls\" />
+    <Folder Include="Features\Polls\Queries\GetPollDetails\" />
+    <Folder Include="Features\Polls\Commands\" />
+    <Folder Include="Features\Polls\Commands\CreateAPoll\" />
+    <Folder Include="Features\Polls\Commands\AddCategoryToPoll\" />
+    <Folder Include="Features\Polls\Commands\DeletePoll\" />
+    <Folder Include="Features\Categories\" />
+    <Folder Include="Features\Categories\Commands\" />
+    <Folder Include="Features\Categories\Commands\CreateACategory\" />
+    <Folder Include="Features\Categories\Commands\AddNomineeToCategory\" />
+    <Folder Include="Features\Polls\Commands\ActivatePoll\" />
+    <Folder Include="Features\Nomnees\Querries\" />
+    <Folder Include="Features\Nomnees\Querries\GetAllNominees\" />
+    <Folder Include="Features\Nomnees\Querries\GetNomineeDetails\" />
+    <Folder Include="Features\Nomnees\Querries\GetNomineeCategories\" />
+    <Folder Include="Features\Nomnees\Querries\GetNomineeVotes\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SVoting.Domain\SVoting.Domain.csproj" />
+    <ProjectReference Include="..\SVoting.Shared\SVoting.Shared.csproj" />
   </ItemGroup>
 </Project>

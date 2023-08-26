@@ -12,10 +12,5 @@ public class Vote
 	public Nominee? Nominee { get; set; }
 
 	public DateTime TimeStamp { get; set; } = DateTime.UtcNow;
-
-	public Vote(string code)
-	{
-		VotingCode = code;
-	}
 }
 

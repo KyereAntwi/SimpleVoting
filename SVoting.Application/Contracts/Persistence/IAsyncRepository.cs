@@ -9,5 +9,6 @@ public interface IAsyncRepository<T> where T : class
     Task UpdateAsync(T entity);
     Task DeleteAsync(T entity);
     Task<IReadOnlyList<T>> GetPagedReponseAsync(int page, int size);
+    Task<int> Count();
 }
 

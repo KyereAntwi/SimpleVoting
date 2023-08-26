@@ -9,10 +9,5 @@ public class Nominee
 
     public ICollection<NomineeCategory> NomineeCategories { get; set; } = default!;
 	public ICollection<Vote> Votes { get; set; } = default!;
-
-	public Nominee(string name)
-	{
-		Fullname = name;
-	}
 }
 
