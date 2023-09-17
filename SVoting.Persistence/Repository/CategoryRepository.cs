@@ -37,4 +37,18 @@ public class CategoryRepository : BaseRepository<PollingCategory>, ICategoryRepo
 
         return categories;
     }
+
+    public async Task<List<PollingCategory>> GetCategoriesByUser(string username)
+    {
+        List<PollingCategory> categories = new List<PollingCategory>();
+
+        var list = await _dbContext.PollingCategories.Where(c => c.UserName == username).ToListAsync();
+
+        if (list.Count > 0 && list!= null)
+        {
+            categories.AddRange(list);
+        }
+
+        return categories;
+    }
 }

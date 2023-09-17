@@ -13,6 +13,11 @@ public class VoteRepository : BaseRepository<Vote>, IVoteRepository
         _dbContext = dbContext;
     }
 
+    public async Task<Vote?> GetExistingVoteByCategoryAndPoll(Guid pollingCategoryId)
+    {
+        return await _dbContext.Votes.FirstOrDefaultAsync(v => v.PollCategoryId == pollingCategoryId);
+    }
+
     public async Task<List<Vote>> GetVotesByNominee(Guid nomineeId)
     {
         List<Vote> votes = new List<Vote>();

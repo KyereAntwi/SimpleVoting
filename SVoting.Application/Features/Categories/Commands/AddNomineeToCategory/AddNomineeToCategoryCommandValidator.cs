@@ -1,5 +1,4 @@
-﻿using System;
-using FluentValidation;
+﻿using FluentValidation;
 using SVoting.Application.Contracts.Persistence;
 
 namespace SVoting.Application.Features.Categories.Commands.AddNomineeToCategory;
@@ -30,8 +29,8 @@ public class AddNomineeToCategoryCommandValidator : AbstractValidator<AddNominee
 
     private async Task<bool> PollCategoryExists(AddNomineeToCategoryCommand command, CancellationToken token)
     {
-        var nominee = await _pollCategoryRepository.GetByIdAsync(command.PollCategoryId);
-        return nominee is null ? false : true;
+        var pollCategory = await _pollCategoryRepository.GetPollCategoryByPollCategory(command.PollId, command.CategoryId);
+        return pollCategory is null ? false : true;
     }
 }
 

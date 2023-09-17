@@ -6,12 +6,12 @@ using SVoting.Shared.Models;
 
 namespace SVoting.Application.Features.PollingSpaces.Queries.GetPollingSpaceWithPollsByUserId
 {
-    public class GetPollingSpaceWithPollsByUserIdQuery : IRequest<PollingSpaceDto>
+    public class GetPollingSpaceWithPollsByUserIdQuery : IRequest<PollingSpaceDto?>
 	{
 		public string? UserId { get; set; }
 	}
 
-    public class GetPollingSpaceWithPollsByUserIdQueryHander : IRequestHandler<GetPollingSpaceWithPollsByUserIdQuery, PollingSpaceDto>
+    public class GetPollingSpaceWithPollsByUserIdQueryHander : IRequestHandler<GetPollingSpaceWithPollsByUserIdQuery, PollingSpaceDto?>
     {
         private readonly IPollingSpaceRepository _pollingSpaceRepository;
         private readonly IMapper _mapper;
@@ -22,19 +22,24 @@ namespace SVoting.Application.Features.PollingSpaces.Queries.GetPollingSpaceWith
             _mapper = mapper;
         }
 
-        public async Task<PollingSpaceDto> Handle(GetPollingSpaceWithPollsByUserIdQuery request, CancellationToken cancellationToken)
+        public async Task<PollingSpaceDto?> Handle(GetPollingSpaceWithPollsByUserIdQuery request, CancellationToken cancellationToken)
         {
             if (request.UserId is null)
                 throw new BadReuestException("User id was not provided");
 
             var space = await _pollingSpaceRepository.GetPollingSpaceByUserId(request.UserId);
 
-            var spaceDto = _mapper.Map<PollingSpaceDto>(space);
+            PollingSpaceDto spaceDto = null;
 
-            spaceDto.Polls = new List<PollDto>();
+            if (space != null)
+            {
+                spaceDto = _mapper.Map<PollingSpaceDto>(space);
 
-            if (space!.Polls.Count > 0)
-                spaceDto.Polls = _mapper.Map<List<PollDto>>(space.Polls);
+                spaceDto.Polls = new List<PollDto>();
+
+                if (space!.Polls.Count > 0)
+                    spaceDto.Polls = _mapper.Map<List<PollDto>>(space.Polls);
+            }
 
             return spaceDto;
         }

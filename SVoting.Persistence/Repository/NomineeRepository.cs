@@ -50,4 +50,18 @@ public class NomineeRepository : BaseRepository<Nominee>, INomineeRepository
 
         return nominees;
     }
+
+    public async Task<List<Nominee>> GetNomineesByUser(string username)
+    {
+        List<Nominee> nominees = new List<Nominee>();
+
+        var list = await _dbContext.Nominees.Where(n => n.UserName == username).ToListAsync();
+
+        if (list.Count > 0 && list != null)
+        {
+            nominees.AddRange(list);
+        }
+
+        return nominees;
+    }
 }

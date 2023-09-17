@@ -11,6 +11,8 @@ public class CreateANomineeCommand : IRequest<CreateANomineeResponse>
     public string Fullname { get; set; } = string.Empty;
     public byte[]? Photograph { get; set; }
     public string? PhotoMime { get; set; }
+
+    public string UserName { get; set; } = string.Empty;
 }
 
 public class CreateANomineeCommandHandler : IRequestHandler<CreateANomineeCommand, CreateANomineeResponse>
@@ -49,6 +51,7 @@ public class CreateANomineeCommandHandler : IRequestHandler<CreateANomineeComman
             {
                 newNominee.Photograph = request.Photograph;
                 newNominee.Photomime = request.PhotoMime;
+                newNominee.UserName = request.UserName;
             }
 
             var nominee = await _asyncRepository.AddAsync(newNominee);

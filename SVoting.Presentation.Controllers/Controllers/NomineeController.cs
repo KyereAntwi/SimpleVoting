@@ -1,4 +1,7 @@
-﻿using MediatR;
+﻿using System.Net;
+using System.Net.Http;
+using System.Security.Claims;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +11,8 @@ using SVoting.Application.Features.Nomnees.Commands.CreateANominee;
 using SVoting.Application.Features.Nomnees.Commands.DeleteNominee;
 using SVoting.Application.Features.Nomnees.Commands.UpdateNominee;
 using SVoting.Application.Features.Nomnees.Querries.GetNomineeCategories;
+using SVoting.Application.Features.Nomnees.Querries.GetNomineesByUser;
+using SVoting.Application.Features.Nomnees.Querries.GetPhotogrph;
 
 namespace SVoting.Presentation.Controllers.Controllers;
 
@@ -50,10 +55,31 @@ public class NomineeController : ControllerBase
 		return Ok(result);
 	}
 
+	[AllowAnonymous]
+	[HttpGet("{nomineeId}/photograph")]
+	public async Task<ActionResult> GetNomineePhotographUrl([FromRoute] Guid nomineeId)
+	{
+		var result = await _mediator.Send(new GetNomineePhotographQuery() { NomineeId = nomineeId });
+		return Ok(result);
+	}
+
+	[HttpGet("all/byuser")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult> GetAllNomineesByUser()
+	{
+        string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+		var result = await _mediator.Send(new GetNomineesByUserQuery() { UserName = userId });
+		return Ok(result);
+    }
+
 	[HttpPost]
 	public async Task<ActionResult> CreateANominee([FromBody] CreateANomineeCommand command)
 	{
-		var result = await _mediator.Send(command);
+        string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        command.UserName = userId;
+        var result = await _mediator.Send(command);
+
 		return AcceptedAtAction(nameof(GetNomineeDetials), new
 		{
 			nomineeId = result.NomineeDto?.Id

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SVoting.Persistence.Data;
 
@@ -10,9 +11,11 @@ using SVoting.Persistence.Data;
 namespace SVoting.Presentation.WebApi.Migrations
 {
     [DbContext(typeof(SVotingDbContext))]
-    partial class SVotingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230826235635_Addedusernames")]
+    partial class Addedusernames
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.10");

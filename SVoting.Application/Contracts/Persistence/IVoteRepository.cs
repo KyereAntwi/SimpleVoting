@@ -7,5 +7,6 @@ public interface IVoteRepository : IAsyncRepository<Vote>
 {
 	Task<List<Vote>> GetVotesByPollingCategory(Guid pollingCategory);
 	Task<List<Vote>> GetVotesByNominee(Guid nomineeId);
+	Task<Vote?> GetExistingVoteByCategoryAndPoll(Guid pollingCategoryId);
 }
 

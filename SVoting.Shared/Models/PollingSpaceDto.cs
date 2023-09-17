@@ -10,6 +10,6 @@ public class PollingSpaceDto
     public string? UserId { get; set; }
     public bool Active { get; set; } = true;
 
-    public ICollection<PollDto>?  Polls { get; set; }
+    public List<PollDto>  Polls { get; set; } = new List<PollDto>();
 }
 

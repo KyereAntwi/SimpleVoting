@@ -9,6 +9,7 @@ namespace SVoting.Application.Features.Categories.Commands.CreateACategory;
 public class CreateACategoryCommand : IRequest<CreateACategoryResponse>
 {
     public string Identifier { get; set; } = string.Empty;
+    public string? Username { get; set; }
 }
 
 public class CreateACategoryCommandHandler : IRequestHandler<CreateACategoryCommand, CreateACategoryResponse>
@@ -41,7 +42,7 @@ public class CreateACategoryCommandHandler : IRequestHandler<CreateACategoryComm
 
         if (response.Success)
         {
-            var category = await _asyncRepository.AddAsync(new PollingCategory() { Identifyer = request.Identifier });
+            var category = await _asyncRepository.AddAsync(new PollingCategory() { Identifyer = request.Identifier, UserName = request.Username! });
             response.CategoryDto = _mapper.Map<CategoryDto>(category);
         }
 

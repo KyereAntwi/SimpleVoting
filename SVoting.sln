@@ -9,13 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVoting.Application", "SVot
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVoting.Shared", "SVoting.Shared\SVoting.Shared.csproj", "{FE2A1BF0-9FDA-48E4-965D-1BC163EA1C01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SVoting.Persistence", "SVoting.Persistence\SVoting.Persistence.csproj", "{EEC2C037-23E7-4A23-8FA3-D2DDAEAD950F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVoting.Persistence", "SVoting.Persistence\SVoting.Persistence.csproj", "{EEC2C037-23E7-4A23-8FA3-D2DDAEAD950F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SVoting.Identity", "SVoting.Identity\SVoting.Identity.csproj", "{CF347C6C-AA3E-4FFF-86D6-D73B65C35195}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVoting.Identity", "SVoting.Identity\SVoting.Identity.csproj", "{CF347C6C-AA3E-4FFF-86D6-D73B65C35195}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SVoting.Presentation.Controllers", "SVoting.Presentation.Controllers\SVoting.Presentation.Controllers.csproj", "{D14C36D4-082C-44B9-8AA3-0FD9ECCFAD60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVoting.Presentation.Controllers", "SVoting.Presentation.Controllers\SVoting.Presentation.Controllers.csproj", "{D14C36D4-082C-44B9-8AA3-0FD9ECCFAD60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SVoting.Presentation.WebApi", "SVoting.Presentation.WebApi\SVoting.Presentation.WebApi.csproj", "{DBD0F167-5BB4-4AD6-A7BB-E786213941EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVoting.Presentation.WebApi", "SVoting.Presentation.WebApi\SVoting.Presentation.WebApi.csproj", "{DBD0F167-5BB4-4AD6-A7BB-E786213941EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SVoting.Presentation.App", "SVoting.Presentation.App\SVoting.Presentation.App.csproj", "{26FE34E6-013C-4505-993A-07BFBD5A9447}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{DBD0F167-5BB4-4AD6-A7BB-E786213941EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBD0F167-5BB4-4AD6-A7BB-E786213941EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBD0F167-5BB4-4AD6-A7BB-E786213941EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26FE34E6-013C-4505-993A-07BFBD5A9447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26FE34E6-013C-4505-993A-07BFBD5A9447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26FE34E6-013C-4505-993A-07BFBD5A9447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26FE34E6-013C-4505-993A-07BFBD5A9447}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

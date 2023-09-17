@@ -50,13 +50,17 @@
     <None Remove="Features\Nomnees\Querries\GetNomineeDetails\" />
     <None Remove="Features\Nomnees\Querries\GetNomineeCategories\" />
     <None Remove="Features\Nomnees\Querries\GetNomineeVotes\" />
+    <None Remove="Features\Categories\Queries\" />
+    <None Remove="Features\Categories\Queries\GetCategoriesByUser\" />
+    <None Remove="Features\Nomnees\Querries\GetNomineesByUser\" />
+    <None Remove="Features\Nomnees\Querries\GetPhotogrph\" />
+    <None Remove="Features\Nomnees\Querries\GetNomineesByPollCategory\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Contracts\Infrastructure\" />
     <Folder Include="Contracts\Identity\" />
     <Folder Include="Models\" />
     <Folder Include="Models\Authentication\" />
-    <Folder Include="Exceptions\" />
     <Folder Include="Features\PollingSpaces\" />
     <Folder Include="Features\PollingSpaces\Queries\" />
     <Folder Include="Features\PollingSpaces\Commands\" />
@@ -64,8 +68,6 @@
     <Folder Include="Features\PollingSpaces\Queries\GetPollingSpaceWithPollsByUserId\" />
     <Folder Include="Profiles\" />
     <Folder Include="Features\PollingSpaces\Commands\CreateAPollingSpace\" />
-    <Folder Include="Features\Polls\" />
-    <Folder Include="Features\Polls\Queries\" />
     <Folder Include="Features\PollingSpaces\Commands\DisableSpace\" />
     <Folder Include="Features\Polls\Queries\GetAllPolls\" />
     <Folder Include="Features\Polls\Queries\GetPollDetails\" />
@@ -83,6 +85,11 @@
     <Folder Include="Features\Nomnees\Querries\GetNomineeDetails\" />
     <Folder Include="Features\Nomnees\Querries\GetNomineeCategories\" />
     <Folder Include="Features\Nomnees\Querries\GetNomineeVotes\" />
+    <Folder Include="Features\Categories\Queries\" />
+    <Folder Include="Features\Categories\Queries\GetCategoriesByUser\" />
+    <Folder Include="Features\Nomnees\Querries\GetNomineesByUser\" />
+    <Folder Include="Features\Nomnees\Querries\GetPhotogrph\" />
+    <Folder Include="Features\Nomnees\Querries\GetNomineesByPollCategory\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SVoting.Domain\SVoting.Domain.csproj" />

@@ -20,7 +20,10 @@ public class PollCategoryRepository : BaseRepository<PollCategory>, IPollCategor
         await _dbContext.SaveChangesAsync();
     }
 
-    public async Task<PollCategory?> GetPollCategoryByPollCategory(Guid pollId, Guid categoryId) => await _dbContext.PollCategories.FindAsync(pollId, categoryId);
+    public async Task<PollCategory?> GetPollCategoryByPollCategory(Guid pollId, Guid categoryId) => await 
+        _dbContext.PollCategories
+        .Include(c => c.NomineeCategories).
+        FirstOrDefaultAsync(x => x.PollId == pollId && x.CategoryId == categoryId);
 
     public async Task<PollCategory?> GetPollCategoryFullDetail(Guid id) => await _dbContext.PollCategories
         .Include(p => p.Poll)
@@ -29,3 +32,4 @@ public class PollCategoryRepository : BaseRepository<PollCategory>, IPollCategor
         .Include(p => p.Votes)
         .FirstOrDefaultAsync();
 }
+                                                                

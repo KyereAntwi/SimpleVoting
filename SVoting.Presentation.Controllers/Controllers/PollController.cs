@@ -31,6 +31,7 @@ public class PollController : ControllerBase
 		return Ok(results);
 	}
 
+	[AllowAnonymous]
 	[HttpGet("{pollId}")]
 	public async Task<ActionResult> GetPollDetails([FromRoute] Guid pollId)
 	{

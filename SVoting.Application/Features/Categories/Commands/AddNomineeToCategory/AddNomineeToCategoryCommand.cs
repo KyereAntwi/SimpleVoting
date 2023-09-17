@@ -1,8 +1,6 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using MediatR;
 using SVoting.Application.Contracts.Persistence;
-using SVoting.Application.Features.Categories.Commands.CreateACategory;
 using SVoting.Domain.Entities;
 using SVoting.Shared.Models;
 
@@ -11,7 +9,8 @@ namespace SVoting.Application.Features.Categories.Commands.AddNomineeToCategory;
 public class AddNomineeToCategoryCommand : IRequest<AddNomineeToCategoryResponse>
 {
     public Guid NomineeId { get; set; }
-    public Guid PollCategoryId { get; set; }
+    public Guid CategoryId { get; set; }
+    public Guid PollId { get; set; }
 }
 
 public class AddNomineeToCategoryCommandHandler : IRequestHandler<AddNomineeToCategoryCommand, AddNomineeToCategoryResponse>
@@ -46,10 +45,12 @@ public class AddNomineeToCategoryCommandHandler : IRequestHandler<AddNomineeToCa
 
         if (response.Success)
         {
+            var pollCategory = await _pollCategoryRepository.GetPollCategoryByPollCategory(request.PollId, request.CategoryId);
+
             await _pollCategoryRepository.AddNomineeToPollCategory(new NomineeCategory()
             {
                 NomineeId = request.NomineeId,
-                PollCategoryId = request.PollCategoryId
+                PollCategoryId = pollCategory!.Id
             });
         }
 

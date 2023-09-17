@@ -5,7 +5,8 @@ public class PollingCategory
 {
 	public Guid Id { get; set; }
 	public string Identifyer { get; set; } = string.Empty;
+	public string UserName { get; set; } = string.Empty;
 
-    public ICollection<PollCategory> PollCategories { get; set; } = default!;
+	public ICollection<PollCategory> PollCategories { get; set; } = default!;
 }
 

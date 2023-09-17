@@ -17,6 +17,19 @@ namespace SVoting.Persistence.Repository
         {
             var poll = await _dbContext.Polls.FindAsync(pollId);
             poll!.Published = true;
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<Poll?> GetPollByVoterCode(string voterCode)
+        {
+            var code  = await _dbContext.Codes.Include(c => c.Poll).FirstOrDefaultAsync(c => c.Identifier == voterCode);
+
+            if (code == null)
+            {
+                return null;
+            }
+
+            return code.Poll;
         }
 
         public async Task<List<Poll>> GetPollsByPollingSpace(Guid spaceId)

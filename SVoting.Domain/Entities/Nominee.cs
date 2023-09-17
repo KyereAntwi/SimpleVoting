@@ -7,7 +7,9 @@ public class Nominee
 	public byte[]? Photograph { get; set; }
 	public string? Photomime { get; set; }
 
-    public ICollection<NomineeCategory> NomineeCategories { get; set; } = default!;
+	public string UserName { get; set; } = string.Empty;
+
+	public ICollection<NomineeCategory> NomineeCategories { get; set; } = default!;
 	public ICollection<Vote> Votes { get; set; } = default!;
 }
 

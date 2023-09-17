@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using SVoting.Application.Contracts.Persistence;
 using SVoting.Application.Exceptions;
 using SVoting.Domain.Entities;
@@ -17,7 +16,7 @@ namespace SVoting.Application.Features.Votes.Commands.Vote
 
     public class VoteCommandHandler : IRequestHandler<VoteCommand, VoteResponse>
     {
-        private readonly IAsyncRepository<Domain.Entities.Vote> _asyncRepository;
+        private readonly IVoteRepository _asyncRepository;
         private readonly IPollRepository _pollRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly INomineeRepository _nomineeRepository;
@@ -64,6 +63,11 @@ namespace SVoting.Application.Features.Votes.Commands.Vote
                 {
                     throw new NotFoundException("Poll Category specified was not found", nameof(PollCategory));
                 }
+
+                var existingVote = await _asyncRepository.GetExistingVoteByCategoryAndPoll(pollCategory.Id);
+
+                if (existingVote != null)
+                    throw new BadReuestException("The specified Polling Category has already been voted for! ");
 
                 await _asyncRepository.AddAsync(new Domain.Entities.Vote()
                 {
